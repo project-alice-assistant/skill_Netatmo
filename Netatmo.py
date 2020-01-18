@@ -49,8 +49,6 @@ class Netatmo(AliceSkill):
 		except lnetatmo.NoDevice:
 			raise SkillStartingFailed(skillName=self.name, error='No Netatmo device found')
 
-		return self.supportedIntents
-
 
 	def _auth(self) -> bool:
 		try:
