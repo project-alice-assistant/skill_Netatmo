@@ -36,7 +36,7 @@ class Netatmo(AliceSkill):
 		}
 
 
-	def onStart(self) -> dict:
+	def onStart(self):
 		super().onStart()
 		if not self.getConfig('password'):
 			raise SkillStartingFailed(skillName=self.name, error='No credentials provided')
