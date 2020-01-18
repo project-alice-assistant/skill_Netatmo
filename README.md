@@ -1,5 +1,7 @@
 # Netatmo
 
+[![Continous Integration](https://gitlab.com/project-alice-assistant/skills/skill_Netatmo/badges/master/pipeline.svg)](https://gitlab.com/project-alice-assistant/skills/skill_Netatmo/pipelines/latest)
+
 ### Download
 
 ##### > WGET method
