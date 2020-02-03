@@ -62,7 +62,7 @@ class Netatmo(AliceSkill):
 		except Exception:
 			self._authTries += 1
 			if self._authTries >= 3:
-				selflogWarning('Tried to auth 3 times, giving up now')
+				self.logWarning('Tried to auth 3 times, giving up now')
 				raise SkillStartingFailed
 			else:
 				time.sleep(1)
