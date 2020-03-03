@@ -2,7 +2,7 @@
 	"name": "Netatmo",
 	"version": "1.0.13",
 	"icon": "fab fa-battle-net",
-	"category": "undefined",
+	"category": "household",
 	"author": "Psychokiller1888",
 	"maintainers": ["maxbachmann"],
 	"desc": "Get readings from your netatmo hardware",
