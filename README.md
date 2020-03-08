@@ -5,7 +5,7 @@
 ### Description
 Get readings from your netatmo hardware
 
-- Version: 1.0.13
+- Version: 1.0.14
 - Author: Psychokiller1888
 - Maintainers: maxbachmann
 - Alice minimum Version: 1.0.0-a5
