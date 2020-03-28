@@ -1,7 +1,7 @@
 {
 	"name": "Netatmo",
-	"version": "1.0.14",
-	"icon": "fab fa-battle-net",
+	"version": "1.0.15",
+	"icon": "fas fa-sun",
 	"category": "household",
 	"author": "Psychokiller1888",
 	"maintainers": ["maxbachmann"],
