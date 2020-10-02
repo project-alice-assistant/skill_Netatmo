@@ -1,25 +1,27 @@
 {
-	"name": "Netatmo",
-	"version": "1.0.15",
-	"icon": "fas fa-sun",
-	"category": "household",
-	"author": "Psychokiller1888",
-	"maintainers": ["maxbachmann"],
-	"desc": "Get readings from your netatmo hardware",
-	"aliceMinVersion": "1.0.0-a5",
-	"pipRequirements": [
-		"lnetatmo"
-	],
-	"systemRequirements": [],
-	"conditions": {
-		"lang": [
-			"en",
-			"fr",
-			"de"
-		],
-		"online": true,
-		"activeManager": [
-		    "TelemetryManager"
-		]
-	}
+    "name": "Netatmo",
+    "version": "1.0.16",
+    "icon": "fas fa-sun",
+    "category": "household",
+    "author": "Psychokiller1888",
+    "maintainers": [
+        "maxbachmann"
+    ],
+    "desc": "Get readings from your netatmo hardware",
+    "aliceMinVersion": "1.0.0-a5",
+    "pipRequirements": [
+        "lnetatmo"
+    ],
+    "systemRequirements": [],
+    "conditions": {
+        "lang": [
+            "en",
+            "fr",
+            "de"
+        ],
+        "online": true,
+        "activeManager": [
+            "TelemetryManager"
+        ]
+    }
 }
