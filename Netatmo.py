@@ -85,4 +85,4 @@ class Netatmo(AliceSkill):
 		now = time.time()
 		for siteId, ttype, value in self._lastWeatherData():
 			if ttype:
-				self.TelemetryManager.storeData(ttype=ttype, value=value, service=self.name, siteId=siteId, timestamp=now)
+				self.TelemetryManager.storeData(ttype=ttype, value=value, service=self.name, locationID=siteId, timestamp=now)
