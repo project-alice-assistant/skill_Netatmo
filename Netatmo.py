@@ -72,17 +72,19 @@ class Netatmo(AliceSkill):
 
 	def _lastWeatherData(self) -> Generator[Tuple[str, str, str], None, None]:
 		self._weatherData = lnetatmo.WeatherStationData(self._netatmoAuth)
-		for siteId, values in self._weatherData.lastData().items():
+		for deviceUid, values in self._weatherData.lastData().items():
 
-			if siteId == 'Wind' or siteId == 'Rain':
-				siteId = self.LanguageManager.getStrings('outside')[0]
+			if deviceUid == 'Wind' or deviceUid == 'Rain':
+				deviceUid = self.LanguageManager.getStrings('outside')[0]
 
 			for key, value in values.items():
-				yield siteId.lower(), self._telemetryTypes.get(key), value
+				yield deviceUid.lower(), self._telemetryTypes.get(key), value
 
 
 	def onFullMinute(self):
+		# TODO fixme
+		return
 		now = time.time()
-		for siteId, ttype, value in self._lastWeatherData():
+		for deviceName, ttype, value in self._lastWeatherData():
 			if ttype:
-				self.TelemetryManager.storeData(ttype=ttype, value=value, siteId=siteId, service=self.name, locationID=siteId, timestamp=now)
+				self.TelemetryManager.storeData(ttype=ttype, value=value, deviceIdd=deviceUid, service=self.name, locationId=deviceUid, timestamp=now)
