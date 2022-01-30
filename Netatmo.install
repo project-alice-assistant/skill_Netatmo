@@ -1,12 +1,10 @@
 {
     "name": "Netatmo",
-    "version": "1.0.25",
+    "version": "1.0.26",
     "icon": "fas fa-sun",
     "category": "household",
     "author": "Psychokiller1888",
-    "maintainers": [
-        "maxbachmann"
-    ],
+    "maintainers": [],
     "desc": "Get readings from your netatmo hardware",
     "aliceMinVersion": "1.0.0-b5",
     "pipRequirements": [

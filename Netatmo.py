@@ -1,7 +1,6 @@
+import lnetatmo
 import time
 from typing import Generator, Tuple
-
-import lnetatmo
 
 from core.ProjectAliceExceptions import SkillStartingFailed
 from core.base.model.AliceSkill import AliceSkill
@@ -70,21 +69,22 @@ class Netatmo(AliceSkill):
 		return True
 
 
-	def _lastWeatherData(self) -> Generator[Tuple[str, str, str], None, None]:
+	def _lastWeatherData(self) -> Generator[Tuple[str, TelemetryType, str], None, None]:
 		self._weatherData = lnetatmo.WeatherStationData(self._netatmoAuth)
-		for deviceUid, values in self._weatherData.lastData().items():
-
-			if deviceUid == 'Wind' or deviceUid == 'Rain':
-				deviceUid = self.LanguageManager.getStrings('outside')[0]
+		for locationName, values in self._weatherData.lastData().items():
+			if locationName == 'Wind' or locationName == 'Rain':
+				locationName = self.LanguageManager.getStrings('outside')[0]
 
 			for key, value in values.items():
-				yield deviceUid.lower(), self._telemetryTypes.get(key), value
+				yield locationName.lower(), self._telemetryTypes.get(key), value
 
 
 	def onFullMinute(self):
-		# TODO fixme
-		return
 		now = time.time()
-		for deviceName, ttype, value in self._lastWeatherData():
+		for locationName, ttype, value in self._lastWeatherData():
 			if ttype:
-				self.TelemetryManager.storeData(ttype=ttype, value=value, deviceIdd=deviceUid, service=self.name, locationId=deviceUid, timestamp=now)
+				location = self.LocationManager.getLocation(locationName=locationName)
+				if location:
+					self.TelemetryManager.storeData(ttype=ttype, value=value, deviceId=12345, service=self.name, locationId=location.id, timestamp=now)
+				else:
+					self.logInfo(f'Got telemetry data for not existing location named "{locationName}"')
